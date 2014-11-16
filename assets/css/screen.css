@@ -115,9 +115,20 @@ table { border-collapse: collapse; border-spacing: 0; }
     font-style: normal;
 }
 
+@font-face {
+    font-family: "social-icon-extras";
+    src:url("../fonts/social-icon-extras.eot");
+    src:url("../fonts/social-icon-extras.eot?") format("embedded-opentype"),
+        url("../fonts/social-icon-extras.woff") format("woff"),
+        url("../fonts/social-icon-extras.ttf") format("truetype"),
+        url("../fonts/social-icon-extras.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Apply these base styles to all icons */
 [class^="icon-"]:before, [class*=" icon-"]:before {
-    font-family: "casper-icons", "Open Sans", sans-serif;
+    font-family: "casper-icons", "social-icon-extras", "Open Sans", sans-serif;
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -159,6 +170,12 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 .icon-link:before {
     content: "\f608";
+}
+.icon-github:before {
+    content: "\f609";
+}
+.icon-linkedin:before {
+    content: "\f610";
 }
 
 
@@ -593,7 +610,7 @@ margin on the iframe, cause it breaks stuff. */
     margin-right: 8px;
 }
 
-.subscribe-button {
+.social-button {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -601,20 +618,19 @@ margin on the iframe, cause it breaks stuff. */
     float: right;
     height: 38px;
     padding: 0 20px;
-    border: transparent 1px solid;
+    /*border: transparent 1px solid;*/
     color: #9EABB3;
-    text-align: center;
+    /*text-align: center;
     font-size: 12px;
     text-transform: uppercase;
     line-height: 35px;
     white-space: nowrap;
     border-radius: 3px;
-    background: rgba(0,0,0,0.1);
+    background: rgba(0,0,0,0.1);*/
     transition: all ease 0.3s;
 }
-.subscribe-button:before {
-    font-size: 9px;
-    margin-right: 6px;
+.social-button:before {
+    font-size: 20px;
 }
 
 /* Special styles when overlaid on an image*/
@@ -632,31 +648,38 @@ margin on the iframe, cause it breaks stuff. */
 }
 .no-cover .main-nav.overlay,
 .no-cover .back-button,
-.no-cover .subscribe-button {
+.no-cover .social-button {
     background: none;
 }
 
-.main-nav.overlay a {
-    color: #fff;
-}
-
-.main-nav.overlay .back-button,
-.main-nav.overlay .subscribe-button {
+.main-nav.overlay .back-button {
     border-color: rgba(255,255,255,0.6);
 }
 
-.main-nav.overlay a:hover {
-    color: #222;
-    border-color: #fff;
-    background: #fff;
+/* Add a border to the buttons on hover */
+.back-button:hover {
+    border-color: #bfc8cd;
+    color: #9EABB3;
+}
+
+.subscribe-button:hover {
+    color: orange;
     transition: all 0.1s ease;
 }
 
-/* Add a border to the buttons on hover */
-.back-button:hover,
-.subscribe-button:hover {
-    border-color: #bfc8cd;
-    color: #9EABB3;
+.twitter-button:hover {
+    color: #33CCFF;
+    transition: all 0.1s ease;
+}
+
+.github-button:hover {
+    color: black;
+    transition: all 0.1s ease;
+}
+
+.linkedin-button:hover {
+    color: #007bb6;
+    transition: all 0.1s ease;
 }
 
 /* The details of your blog. Defined in ghost/settings/ */
@@ -693,8 +716,7 @@ margin on the iframe, cause it breaks stuff. */
     color: rgba(0,0,0,0.5);
 }
 
-.no-cover .main-nav.overlay .back-button,
-.no-cover .main-nav.overlay .subscribe-button {
+.no-cover .main-nav.overlay .back-button {
     color: rgba(0,0,0,0.4);
     border-color: rgba(0,0,0,0.3);
 }
@@ -1486,7 +1508,7 @@ body:not(.post-template) .post-title {
     }
 
     .back-button,
-    .subscribe-button {
+    .social-button {
         height: 44px;
         line-height: 41px;
         border-radius: 0;
@@ -1494,7 +1516,7 @@ body:not(.post-template) .post-title {
         background: transparent;
     }
     .back-button:hover,
-    .subscribe-button:hover {
+    .social-button:hover {
         border-color: #ebeef0;
         color: #2e2e2e;
         background: #ebeef0;
@@ -1504,26 +1526,18 @@ body:not(.post-template) .post-title {
         padding: 0 15px 0 10px;
     }
 
-    .subscribe-button {
+    .social-button {
         padding: 0 12px;
-    }
-
-    .main-nav.overlay a:hover {
-        color: #fff;
-        border-color: transparent;
-        background: transparent;
     }
 
     .no-cover .main-nav.overlay {
         background: none;
     }
-    .no-cover .main-nav.overlay .back-button,
-    .no-cover .main-nav.overlay .subscribe-button {
+    .no-cover .main-nav.overlay .back-button {
         border: none;
     }
 
-    .main-nav.overlay .back-button,
-    .main-nav.overlay .subscribe-button {
+    .main-nav.overlay .back-button {
         border-color: transparent;
     }
 
