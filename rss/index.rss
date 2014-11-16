@@ -1,0 +1,93 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Nicholas Mackey</title><description>Thoughts, stories and ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.5</generator><lastBuildDate>Sun, 16 Nov 2014 04:44:22 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Angular 1.3</title><description>&lt;p&gt;With the release of Angular 1.3 the angular team has added a few things that make it more performant, write less code, and help you figure out problems quicker and follow best practices.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id="isforperformance"&gt;'::' is for Performance&lt;/h3&gt;
+
+&lt;p&gt;Angular 1.3 has introduced one-time bindings.  Useing the '::' syntax we can tell angular we only want to bind a value once.&lt;/p&gt;
+
+&lt;p&gt;Why is this awesome?&lt;/p&gt;
+
+&lt;p&gt;It makes your app faster.&lt;/p&gt;
+
+&lt;p&gt;How?&lt;/p&gt;
+
+&lt;p&gt;Because watchers slow your app down.&lt;/p&gt;
+
+&lt;p&gt;Explain...&lt;/p&gt;
+
+&lt;p&gt;When you have too many watchers on your page angular starts to slow down (all the research I've seen says this number is ~2000).  By using one-time binding you remove the watchers for your static content after it is rendered once.  So for example:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;div&amp;gt;{{title}}&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;now can look like:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;div&amp;gt;{{::title}}&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.angularjs.org/guide/expression#one-time-binding"&gt;one-time binding docs&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id="ngmodeloptionsawesome"&gt;ng-model-options = awesome&lt;/h3&gt;
+
+&lt;p&gt;Have you ever wanted to debouce an input field or update your model on blur instead of after every change.  I in fact have directives in my code to handle these very things.  With angular 1.3 I can go delete that code and use ng-model-options instead.&lt;/p&gt;
+
+&lt;p&gt;You can use ng-model-options anywhere you use ng-model.  The different options include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;updateOn&lt;/li&gt;
+&lt;li&gt;debounce&lt;/li&gt;
+&lt;li&gt;allowInvalid&lt;/li&gt;
+&lt;li&gt;getterSetter&lt;/li&gt;
+&lt;li&gt;timezone&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I'm going to walk through the two I'm going to be using right away...debounce and updateOn.&lt;/p&gt;
+
+&lt;h4 id="debounce"&gt;debounce&lt;/h4&gt;
+
+&lt;p&gt;The following code debounces model changes for 1000ms.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;input type="text" name="search"
+       ng-model="search"
+       ng-model-options="{ debounce: 1000 }" /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="update"&gt;update&lt;/h4&gt;
+
+&lt;p&gt;The following code will only update the model on blur.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;input type="text" name="search"
+       ng-model="search"
+       ng-model-options="{ updateOn: 'blur' }"&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions"&gt;ng-model-options docs&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id="givemeanghint"&gt;give me a ng-hint&lt;/h3&gt;
+
+&lt;p&gt;Angular is working on a new library that can be used with angular 1.3 that helps developers spend less time figuring out what is wrong with their angular code.  Ever forget to inject a dependency that you are using?  Typo in your directive name?  Not sure of what the angular best practices are?  Angular now has your back.&lt;/p&gt;
+
+&lt;h5 id="install"&gt;Install&lt;/h5&gt;
+
+&lt;p&gt;&lt;code&gt;npm install angular-hint&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id="include"&gt;Include&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type="path/to/angular/angular.js"&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script type="path/to/angular-hint/hint.js"&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id="use"&gt;Use&lt;/h5&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;html ng-app="myApp" ng-hint&amp;gt;&amp;lt;/html&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now when you forget to inject a dependency angular will tell you.&lt;/p&gt;
+
+&lt;p&gt;When you misspell a directive in you dom angular will recommend the correct one.&lt;/p&gt;
+
+&lt;p&gt;Use 'Ctrl' for naming your controllers instead of 'Controller' angular will let you know that it is best practice to use 'Controller'.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/angular/angular-hint"&gt;ng-hint on github&lt;/a&gt;&lt;/p&gt;</description><link>http://localhost:2368/angular-1-3/</link><guid isPermaLink="false">4c064c1c-86e5-42cc-b1f6-3416a9daa995</guid><dc:creator>Nicholas Mackey</dc:creator><pubDate>Sun, 16 Nov 2014 04:35:46 GMT</pubDate></item></channel></rss>
