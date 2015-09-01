@@ -1,4 +1,342 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Nicholas Mackey - Nicholas Mackey</title><description>Web development and other stuff...</description><link>http://nmackey.com/</link><generator>Ghost 0.5</generator><lastBuildDate>Sun, 16 Nov 2014 20:16:03 GMT</lastBuildDate><atom:link href="http://nmackey.com/author/nicholas/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Angular 1.3</title><description>&lt;p&gt;With the release of Angular 1.3 the angular team has added a few things that make it more performant, write less code, and help you figure out problems quicker and follow best practices.&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Nicholas Mackey - Nicholas Mackey</title><description>Web development and other stuff...</description><link>http://nmackey.com/</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 01 Sep 2015 05:39:00 GMT</lastBuildDate><atom:link href="http://nmackey.com/author/nicholas/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Angular in a Material World</title><description>&lt;p&gt;Interested in AngularJS and Material Design?  Then you really need to check out &lt;a href="https://material.angularjs.org"&gt;Angular Material&lt;/a&gt;.  I recently gave a presentation on Angular Material at Omaha's AngularJS meetup &lt;a href="http://www.meetup.com/ng-nebraska/"&gt;ng-nebraska&lt;/a&gt;.  Read on to see what I thought or check out the presentation &lt;a href="http://nmackey.com/presentation-angular-material/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id="1materialdesign"&gt;1. Material Design&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Unveiled at Google IO 2014&lt;/li&gt;
+&lt;li&gt;Google's&lt;/li&gt;&lt;/ul&gt;</description><link>http://nmackey.com/angular-in-a-material-world/</link><guid isPermaLink="false">2bba0945-ebe2-47bb-a7ab-26ba40bd9d46</guid><category>AngularJS</category><category>Angular Material</category><dc:creator>Nicholas Mackey</dc:creator><pubDate>Sun, 30 Aug 2015 05:23:21 GMT</pubDate><content:encoded>&lt;p&gt;Interested in AngularJS and Material Design?  Then you really need to check out &lt;a href="https://material.angularjs.org"&gt;Angular Material&lt;/a&gt;.  I recently gave a presentation on Angular Material at Omaha's AngularJS meetup &lt;a href="http://www.meetup.com/ng-nebraska/"&gt;ng-nebraska&lt;/a&gt;.  Read on to see what I thought or check out the presentation &lt;a href="http://nmackey.com/presentation-angular-material/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id="1materialdesign"&gt;1. Material Design&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Unveiled at Google IO 2014&lt;/li&gt;
+&lt;li&gt;Google's new design for Android and web applications&lt;/li&gt;
+&lt;li&gt;Set of design principles for applications based on physical principles of paper and ink combined with science and technology.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe src="https://www.youtube.com/embed/Q8TXgCzxEnw?&amp;rel=0&amp;vq=large" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="https://www.google.com/design/spec/material-design/introduction.html"&gt;website&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id="basicprinciplesofmaterialdesign"&gt;Basic principles of Material Design&lt;/h4&gt;
+
+&lt;h5 id="environment"&gt;Environment&lt;/h5&gt;
+
+&lt;p&gt;The material environment is a 3D space, which means all objects have x, y, and z dimensions. &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2015/08/environment_1.png" style="max-width:600px;margin:0;"&gt;&lt;/p&gt;
+
+&lt;h5 id="materialproperties"&gt;Material Properties&lt;/h5&gt;
+
+&lt;p&gt;Material has varying x &amp;amp; y dimensions with a uniform thickness (1dp). &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2015/08/material_properties_1.png" style="max-width:600px;margin:0;"&gt; &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2015/08/material_properties_2.png" style="max-width:600px;margin:0;"&gt;&lt;/p&gt;
+
+&lt;h5 id="elevationshadows"&gt;Elevation &amp;amp; Shadows&lt;/h5&gt;
+
+&lt;p&gt;Shadows result naturally from the realtive elevation between material elements.  &lt;/p&gt;
+
+&lt;video autoplay loop style="max-width:600px;"&gt;  
+&lt;source src="https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsM01aOVkzWXFYb1k/inline%20whatismaterial-materialprop-physicalprop-PaperShadow_01_xhdpi_008.webm" type="video/webm"&gt;                                          &lt;source src="https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsSmZ5VlNBRHBXNXM/inline%20whatismaterial-materialprop-physicalprop-PaperShadow_01_xhdpi_008.mp4" type="video/mp4"&gt;  
+&lt;/video&gt;
+
+&lt;h3 id="2angularmaterial"&gt;2. Angular Material&lt;/h3&gt;
+
+&lt;p&gt;The Angular Material project is an implementation of Material Design in Angular.js. This project provides a set of reusable, well-tested, and accessible UI components based on the Material Design system.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://material.angularjs.org"&gt;website&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5 id="caniuse"&gt;caniuse?&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Browser Support (n-1)&lt;/li&gt;
+&lt;li&gt;Angular 1.3.x or higher&lt;/li&gt;
+&lt;li&gt;Pre 1.0&lt;/li&gt;
+&lt;li&gt;1.0 targeted for early fall&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="highlights"&gt;Highlights&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Themes&lt;/li&gt;
+&lt;li&gt;Grid (flexbox)&lt;/li&gt;
+&lt;li&gt;Input Elements&lt;/li&gt;
+&lt;li&gt;Accessibility&lt;/li&gt;
+&lt;li&gt;Touch support&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="wheredoistart"&gt;Where do I start?&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/angular/bower-material"&gt;bower&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.npmjs.com/package/angular-material"&gt;npm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/angular/material"&gt;github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="reviewflexbox"&gt;Review flexbox&lt;/h5&gt;
+
+&lt;p&gt;Review flexbox b/c angular material's grid system is based on it.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"&gt;Nice guide&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id="angulargulpgenerator"&gt;Angular Gulp Generator&lt;/h6&gt;
+
+&lt;p&gt;Yeoman generator that will bootstrap an app for you with Angular Material.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/Swiip/generator-gulp-angular"&gt;generator&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="3examples"&gt;3. Examples&lt;/h3&gt;
+
+&lt;p&gt;We are going to setup angular material app for viewing and submitting talk proposals.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Generator&lt;/li&gt;
+&lt;li&gt;Navigation&lt;/li&gt;
+&lt;li&gt;Font Icons&lt;/li&gt;
+&lt;li&gt;Lists &amp;amp; Forms&lt;/li&gt;
+&lt;li&gt;Themes&lt;/li&gt;
+&lt;li&gt;Accessibility&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/nmackey/presentation-angular-material-examples"&gt;code on github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="4lessonslearned"&gt;4. Lessons Learned&lt;/h3&gt;
+
+&lt;h5 id="good"&gt;Good&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Supported by google&lt;/li&gt;
+&lt;li&gt;Uses Flexbox&lt;/li&gt;
+&lt;li&gt;Pretty&lt;/li&gt;
+&lt;li&gt;Provides Material Design for the web&lt;/li&gt;
+&lt;li&gt;Not Bootstrap :)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="bad"&gt;Bad&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Not quite ready yet (pre 1.0 &amp;amp; performance issues)&lt;/li&gt;
+&lt;li&gt;Still missing a few things...maybe (datepicker just landed)&lt;/li&gt;
+&lt;li&gt;Some widgets (directives) don't play well together (toolbar &amp;amp; tabs)&lt;/li&gt;
+&lt;li&gt;Missing some documentation (styling, options, services)&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title>Twice the work, half the time?</title><description>&lt;p&gt;&lt;img src="http://nmackey.com/content/images/2015/08/book.jpg" alt="Book"&gt;&lt;/p&gt;
+
+&lt;p&gt;I had the pleasure to pick the book: The Art of Doing Twice the Work in Half the Time by JJ Sutherland.  Needless to say it was a great read.  It was great to hear from one of the founders of scrum how and why it came to be.  Since&lt;/p&gt;</description><link>http://nmackey.com/twice-the-work-half-the-time/</link><guid isPermaLink="false">89d8f407-ae59-4bd2-8422-d2dfbb9a4147</guid><category>SCRUM</category><category>Agile</category><dc:creator>Nicholas Mackey</dc:creator><pubDate>Wed, 24 Jun 2015 05:22:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;img src="http://nmackey.com/content/images/2015/08/book.jpg" alt="Book"&gt;&lt;/p&gt;
+
+&lt;p&gt;I had the pleasure to pick the book: The Art of Doing Twice the Work in Half the Time by JJ Sutherland.  Needless to say it was a great read.  It was great to hear from one of the founders of scrum how and why it came to be.  Since my work is going through some pains in getting agile and scrum running smoothly I was asked to share a presentation based on the book.  Keep reading or check out the presentation &lt;a href="http://nmackey.com/twice-the-work-half-the-time/nmackey.com/presentation-scrum"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id="1oldway"&gt;1. Old Way&lt;/h3&gt;
+
+&lt;h5 id="waterfall"&gt;Waterfall&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;try to plan it all out&lt;/li&gt;
+&lt;li&gt;gantt charts&lt;/li&gt;
+&lt;li&gt;limited customer interaction&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="whydoesntthiswork"&gt;Why doesn't this work?&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Doesn't account for change&lt;/li&gt;
+&lt;li&gt;People are bad at estimating&lt;/li&gt;
+&lt;li&gt;Doesn't solicit feedback&lt;/li&gt;
+&lt;li&gt;Usually we don't know everything&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="2newway"&gt;2. New Way&lt;/h3&gt;
+
+&lt;h5 id="scrum"&gt;SCRUM&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Evolutionary&lt;/li&gt;
+&lt;li&gt;Adaptive&lt;/li&gt;
+&lt;li&gt;Self Corrective&lt;/li&gt;
+&lt;li&gt;Small teams&lt;/li&gt;
+&lt;li&gt;Prioritized tasks&lt;/li&gt;
+&lt;li&gt;Daily stand-ups&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="whydoesthiswork"&gt;Why does this work?&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Encourages improvement&lt;/li&gt;
+&lt;li&gt;Encourages feedback&lt;/li&gt;
+&lt;li&gt;Eliminates waste&lt;/li&gt;
+&lt;li&gt;Usually we don't know everything&lt;/li&gt;
+&lt;li&gt;Makes people happy&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="youmustplanforchangefailfast"&gt;You must plan for change &amp;amp; fail fast&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You want to figure out what you don't know&lt;/li&gt;
+&lt;li&gt;You want to discover problems as soon as possible&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="proventodeliver"&gt;Proven to deliver&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fewer people&lt;/li&gt;
+&lt;li&gt;Less time&lt;/li&gt;
+&lt;li&gt;More stuff&lt;/li&gt;
+&lt;li&gt;Higher quality&lt;/li&gt;
+&lt;li&gt;Lower cost&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="3teams"&gt;3. Teams&lt;/h3&gt;
+
+&lt;h5 id="greatteamsare"&gt;Great teams are:&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Autonomous&lt;/li&gt;
+&lt;li&gt;Cross functional&lt;/li&gt;
+&lt;li&gt;Empowered&lt;/li&gt;
+&lt;li&gt;Small (7 +/- 2)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="4timewaste"&gt;4. Time &amp;amp; Waste&lt;/h3&gt;
+
+&lt;p&gt;"Time is finite, treat it that way."&lt;/p&gt;
+
+&lt;h5 id="nomoremeetings"&gt;No more meetings&lt;/h5&gt;
+
+&lt;p&gt;one 15 minute standup&lt;/p&gt;
+
+&lt;h5 id="nomultitasking"&gt;No multi-tasking&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;It makes you stupid and you are worse at both tasks&lt;/li&gt;
+&lt;li&gt;Context switching is difficult and takes time&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="doitrightthefirsttime"&gt;Do it right the first time&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Half done isn't done&lt;/li&gt;
+&lt;li&gt;Fix issues right away&lt;/li&gt;
+&lt;li&gt;It costs less and saves time&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="sustainability"&gt;Sustainability&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Working long hours gets less done&lt;/li&gt;
+&lt;li&gt;Don't be unreasonable&lt;/li&gt;
+&lt;li&gt;No heroics&lt;/li&gt;
+&lt;li&gt;No stupid policies&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="examples"&gt;Examples&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Toyota&lt;/li&gt;
+&lt;li&gt;Medco&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="5planning"&gt;5. Planning&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Plan for reality not fantasy&lt;/li&gt;
+&lt;li&gt;Only plan what you need to do&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="breakyourworkintostories"&gt;Break your work into stories&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;As a (who)&lt;/li&gt;
+&lt;li&gt;I need (what)&lt;/li&gt;
+&lt;li&gt;So that (why)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="storiesshouldbesmall"&gt;Stories should be small&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Independent&lt;/li&gt;
+&lt;li&gt;Negotiable&lt;/li&gt;
+&lt;li&gt;Valuable&lt;/li&gt;
+&lt;li&gt;Estimable&lt;/li&gt;
+&lt;li&gt;Small&lt;/li&gt;
+&lt;li&gt;Testable&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="userelativesizing"&gt;Use relative sizing&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;People suck at absolute sizing&lt;/li&gt;
+&lt;li&gt;People are good at relative sizing (story points)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="velocity"&gt;Velocity&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;When you know how fast you are going you will know when you are going to get there&lt;/li&gt;
+&lt;li&gt;Are you improving?&lt;/li&gt;
+&lt;li&gt;When SCRUM is implemented well production can increase substantially&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="6priorities"&gt;6. Priorities&lt;/h3&gt;
+
+&lt;p&gt;Delivering value...&lt;/p&gt;
+
+&lt;h5 id="makealistandcheckittwice"&gt;Make a list and check it twice&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Make a list of everything for the project and prioritize it&lt;/li&gt;
+&lt;li&gt;Highest value and lowest risk at the top&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="minimumviableproductmvp"&gt;Minimum Viable Product (MVP)&lt;/h5&gt;
+
+&lt;p&gt;80% of the value is in 20% of the work&lt;/p&gt;
+
+&lt;h5 id="theproductowner"&gt;The Product Owner&lt;/h5&gt;
+
+&lt;p&gt;What needs to be done and why you should do it&lt;/p&gt;
+
+&lt;h5 id="theteam"&gt;The Team&lt;/h5&gt;
+
+&lt;p&gt;How to make it happen and who should do it&lt;/p&gt;
+
+&lt;h5 id="moneyfornothingandchangeforfree"&gt;Money for nothing and change for free&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create new things only as long as they deliver value&lt;/li&gt;
+&lt;li&gt;Be willing to swap them for things of equal effort&lt;/li&gt;
+&lt;li&gt;What is needed in the beginning is never what is actually needed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="7happiness"&gt;7. Happiness&lt;/h3&gt;
+
+&lt;p&gt;"Too often we just reward results, but what we really want to reward is people striving towards greatness"&lt;/p&gt;
+
+&lt;h5 id="whyishappinessimportant"&gt;Why is happiness important&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Smarter decisions&lt;/li&gt;
+&lt;li&gt;More creative&lt;/li&gt;
+&lt;li&gt;Retention&lt;/li&gt;
+&lt;li&gt;Accomplish more&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="arewegettingbetter"&gt;Are we getting better?&lt;/h5&gt;
+
+&lt;p&gt;Every sprint we should be trying to get better at something&lt;/p&gt;
+
+&lt;h5 id="transparency"&gt;Transparency&lt;/h5&gt;
+
+&lt;p&gt;Secrecy is poison&lt;/p&gt;</content:encoded></item><item><title>Angular 1.3</title><description>&lt;p&gt;With the release of Angular 1.3 the angular team has added a few things that make it more performant, write less code, and help you figure out problems quicker and follow best practices.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id="isforperformance"&gt;'::' is for Performance&lt;/h3&gt;
+
+&lt;p&gt;Angular 1.3 has introduced one-time bindings.  Useing the '::'&lt;/p&gt;</description><link>http://nmackey.com/angular-1-3/</link><guid isPermaLink="false">4c064c1c-86e5-42cc-b1f6-3416a9daa995</guid><category>AngularJS</category><dc:creator>Nicholas Mackey</dc:creator><pubDate>Sun, 16 Nov 2014 04:35:46 GMT</pubDate><content:encoded>&lt;p&gt;With the release of Angular 1.3 the angular team has added a few things that make it more performant, write less code, and help you figure out problems quicker and follow best practices.&lt;/p&gt;
 
 &lt;hr&gt;
 
@@ -90,4 +428,4 @@
 
 &lt;p&gt;Use 'Ctrl' for naming your controllers instead of 'Controller' angular will let you know that it is best practice to use 'Controller'.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="https://github.com/angular/angular-hint"&gt;ng-hint on github&lt;/a&gt;&lt;/p&gt;</description><link>http://nmackey.com/angular-1-3/</link><guid isPermaLink="false">4c064c1c-86e5-42cc-b1f6-3416a9daa995</guid><category>AngularJS</category><dc:creator>Nicholas Mackey</dc:creator><pubDate>Sun, 16 Nov 2014 04:35:46 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="https://github.com/angular/angular-hint"&gt;ng-hint on github&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>

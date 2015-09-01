@@ -1,0 +1,290 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Angular in a Material World</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=5aee4cffc4">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+
+    <link rel="canonical" href="http://nmackey.com/angular-in-a-material-world/">
+    
+    <meta property="og:site_name" content="Nicholas Mackey">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Angular in a Material World">
+    <meta property="og:description" content="Interested in AngularJS and Material Design?  Then you really need to check out Angular Material.  I recently gave a presentation on Angular Material at Omaha's AngularJS meetup ng-nebraska.  Read on to see what I thought or check out the presentation...">
+    <meta property="og:url" content="http://nmackey.com/angular-in-a-material-world/">
+    <meta property="article:published_time" content="2015-08-30T05:23:21.513Z">
+    <meta property="article:modified_time" content="2015-09-01T05:08:30.071Z">
+    <meta property="article:tag" content="AngularJS">
+    <meta property="article:tag" content="Angular Material">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Angular in a Material World">
+    <meta name="twitter:description" content="Interested in AngularJS and Material Design?  Then you really need to check out Angular Material.  I recently gave a presentation on Angular Material at Omaha's AngularJS meetup ng-nebraska.  Read on to see what I thought or check out the presentation...">
+    <meta name="twitter:url" content="http://nmackey.com/angular-in-a-material-world/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Nicholas Mackey",
+    "author": {
+        "@type": "Person",
+        "name": "Nicholas Mackey",
+        "image": "//www.gravatar.com/avatar/2a237b12443e3a532471a0d4dfc4aeb1?d=404&s=250",
+        "url": "http://nmackey.com/author/nicholas",
+        "sameAs": null,
+        "description": null
+    },
+    "headline": "Angular in a Material World",
+    "url": "http://nmackey.com/angular-in-a-material-world/",
+    "datePublished": "2015-08-30T05:23:21.513Z",
+    "dateModified": "2015-09-01T05:08:30.071Z",
+    "keywords": "AngularJS, Angular Material",
+    "description": "Interested in AngularJS and Material Design?  Then you really need to check out Angular Material.  I recently gave a presentation on Angular Material at Omaha&#x27;s AngularJS meetup ng-nebraska.  Read on to see what I thought or check out the presentation..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.6">
+    <link rel="alternate" type="application/rss+xml" title="Nicholas Mackey" href="http://nmackey.com/rss/">
+</head>
+<body class="post-template tag-angularjs tag-angular-material">
+
+    
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="http://nmackey.com">Home</a>
+        <a class="social-button linkedin-button icon-linkedin" href="http://www.linkedin.com/pub/nicholas-mackey/2a/34/546"></a>
+        <a class="social-button github-button icon-github" href="https://github.com/nmackey/"></a>
+        <a class="social-button twitter-button icon-twitter" href="https://twitter.com/nicholas_mackey"></a>
+        <a class="social-button subscribe-button icon-feed" href="http://nmackey.com/rss/"></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-angularjs tag-angular-material">
+
+        <header class="post-header">
+            <h1 class="post-title">Angular in a Material World</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-08-29">29 August 2015</time>  on <a href="../tag/angularjs/">AngularJS</a>, <a href="../tag/angular-material/">Angular Material</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>Interested in AngularJS and Material Design?  Then you really need to check out <a href="https://material.angularjs.org">Angular Material</a>.  I recently gave a presentation on Angular Material at Omaha's AngularJS meetup <a href="http://www.meetup.com/ng-nebraska/">ng-nebraska</a>.  Read on to see what I thought or check out the presentation <a href="http://nmackey.com/presentation-angular-material/">here</a>.</p>
+
+<hr>
+
+<h3 id="1materialdesign">1. Material Design</h3>
+
+<ul>
+<li>Unveiled at Google IO 2014</li>
+<li>Google's new design for Android and web applications</li>
+<li>Set of design principles for applications based on physical principles of paper and ink combined with science and technology.</li>
+</ul>
+
+<iframe src="https://www.youtube.com/embed/Q8TXgCzxEnw?&amp;rel=0&amp;vq=large" frameborder="0" allowfullscreen></iframe>
+
+<p><a href="https://www.google.com/design/spec/material-design/introduction.html">website</a></p>
+
+<h4 id="basicprinciplesofmaterialdesign">Basic principles of Material Design</h4>
+
+<h5 id="environment">Environment</h5>
+
+<p>The material environment is a 3D space, which means all objects have x, y, and z dimensions. <br>
+<img src="http://localhost:2368/content/images/2015/08/environment_1.png" style="max-width:600px;margin:0;"></p>
+
+<h5 id="materialproperties">Material Properties</h5>
+
+<p>Material has varying x &amp; y dimensions with a uniform thickness (1dp). <br>
+<img src="http://localhost:2368/content/images/2015/08/material_properties_1.png" style="max-width:600px;margin:0;"> <br>
+<img src="http://localhost:2368/content/images/2015/08/material_properties_2.png" style="max-width:600px;margin:0;"></p>
+
+<h5 id="elevationshadows">Elevation &amp; Shadows</h5>
+
+<p>Shadows result naturally from the realtive elevation between material elements.  </p>
+
+<video autoplay loop style="max-width:600px;">  
+<source src="https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsM01aOVkzWXFYb1k/inline%20whatismaterial-materialprop-physicalprop-PaperShadow_01_xhdpi_008.webm" type="video/webm">                                          <source src="https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsSmZ5VlNBRHBXNXM/inline%20whatismaterial-materialprop-physicalprop-PaperShadow_01_xhdpi_008.mp4" type="video/mp4">  
+</source></source></video>
+
+<h3 id="2angularmaterial">2. Angular Material</h3>
+
+<p>The Angular Material project is an implementation of Material Design in Angular.js. This project provides a set of reusable, well-tested, and accessible UI components based on the Material Design system.</p>
+
+<p><a href="https://material.angularjs.org">website</a></p>
+
+<h5 id="caniuse">caniuse?</h5>
+
+<ul>
+<li>Browser Support (n-1)</li>
+<li>Angular 1.3.x or higher</li>
+<li>Pre 1.0</li>
+<li>1.0 targeted for early fall</li>
+</ul>
+
+<h5 id="highlights">Highlights</h5>
+
+<ul>
+<li>Themes</li>
+<li>Grid (flexbox)</li>
+<li>Input Elements</li>
+<li>Accessibility</li>
+<li>Touch support</li>
+</ul>
+
+<h5 id="wheredoistart">Where do I start?</h5>
+
+<ul>
+<li><a href="https://github.com/angular/bower-material">bower</a></li>
+<li><a href="https://www.npmjs.com/package/angular-material">npm</a></li>
+<li><a href="https://github.com/angular/material">github</a></li>
+</ul>
+
+<h5 id="reviewflexbox">Review flexbox</h5>
+
+<p>Review flexbox b/c angular material's grid system is based on it.</p>
+
+<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Nice guide</a></p>
+
+<h6 id="angulargulpgenerator">Angular Gulp Generator</h6>
+
+<p>Yeoman generator that will bootstrap an app for you with Angular Material.</p>
+
+<p><a href="https://github.com/Swiip/generator-gulp-angular">generator</a></p>
+
+<h3 id="3examples">3. Examples</h3>
+
+<p>We are going to setup angular material app for viewing and submitting talk proposals.</p>
+
+<ul>
+<li>Generator</li>
+<li>Navigation</li>
+<li>Font Icons</li>
+<li>Lists &amp; Forms</li>
+<li>Themes</li>
+<li>Accessibility</li>
+</ul>
+
+<p><a href="https://github.com/nmackey/presentation-angular-material-examples">code on github</a></p>
+
+<h3 id="4lessonslearned">4. Lessons Learned</h3>
+
+<h5 id="good">Good</h5>
+
+<ul>
+<li>Supported by google</li>
+<li>Uses Flexbox</li>
+<li>Pretty</li>
+<li>Provides Material Design for the web</li>
+<li>Not Bootstrap :)</li>
+</ul>
+
+<h5 id="bad">Bad</h5>
+
+<ul>
+<li>Not quite ready yet (pre 1.0 &amp; performance issues)</li>
+<li>Still missing a few things...maybe (datepicker just landed)</li>
+<li>Some widgets (directives) don't play well together (toolbar &amp; tabs)</li>
+<li>Missing some documentation (styling, options, services)</li>
+</ul>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="../author/nicholas/" style="background-image: url(http://www.gravatar.com/avatar/2a237b12443e3a532471a0d4dfc4aeb1?d=404&amp;s=250)"><span class="hidden">Nicholas Mackey's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="../author/nicholas/">Nicholas Mackey</a></h4>
+
+                    <p>Read <a href="../author/nicholas/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Angular%20in%20a%20Material%20World&amp;url=http://nmackey.com/angular-in-a-material-world/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://nmackey.com/angular-in-a-material-world/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://nmackey.com/angular-in-a-material-world/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'nmackey'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </article>
+
+</main>
+
+
+
+    <footer class="site-footer clearfix">
+         <section class="copyright"><a href="http://nmackey.com">Nicholas Mackey</a> © 2015</section>
+         <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+    </footer>
+
+    <script src="../public/jquery.js?v=5aee4cffc4"></script>
+
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=5aee4cffc4"></script>
+    <script type="text/javascript" src="../assets/js/index.js?v=5aee4cffc4"></script>
+
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'nmackey'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-56772846-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+</body>

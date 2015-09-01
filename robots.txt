@@ -1,2 +1,3 @@
 User-agent: *
+Sitemap: http://nmackey.com/sitemap.xml
 Disallow: /ghost/

@@ -1,93 +1,432 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Nicholas Mackey</title><description>Web development and other stuff...</description><link>http://nmackey.com/</link><generator>Ghost 0.5</generator><lastBuildDate>Sun, 16 Nov 2014 20:16:03 GMT</lastBuildDate><atom:link href="http://nmackey.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Angular 1.3</title><description>&lt;p&gt;With the release of Angular 1.3 the angular team has added a few things that make it more performant, write less code, and help you figure out problems quicker and follow best practices.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Nicholas Mackey]]></title><description><![CDATA[Web development and other stuff...]]></description><link>http://nmackey.com/</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 01 Sep 2015 05:18:02 GMT</lastBuildDate><atom:link href="http://nmackey.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Angular in a Material World]]></title><description><![CDATA[<p>Interested in AngularJS and Material Design?  Then you really need to check out <a href="https://material.angularjs.org">Angular Material</a>.  I recently gave a presentation on Angular Material at Omaha's AngularJS meetup <a href="http://www.meetup.com/ng-nebraska/">ng-nebraska</a>.  Read on to see what I thought or check out the presentation <a href="http://nmackey.com/presentation-angular-material/">here</a>.</p>
 
-&lt;hr&gt;
+<hr>
 
-&lt;h3 id="isforperformance"&gt;'::' is for Performance&lt;/h3&gt;
+<h3 id="1materialdesign">1. Material Design</h3>
 
-&lt;p&gt;Angular 1.3 has introduced one-time bindings.  Useing the '::' syntax we can tell angular we only want to bind a value once.&lt;/p&gt;
+<ul>
+<li>Unveiled at Google IO 2014</li>
+<li>Google's</li></ul>]]></description><link>http://nmackey.com/angular-in-a-material-world/</link><guid isPermaLink="false">2bba0945-ebe2-47bb-a7ab-26ba40bd9d46</guid><category><![CDATA[AngularJS]]></category><category><![CDATA[Angular Material]]></category><dc:creator><![CDATA[Nicholas Mackey]]></dc:creator><pubDate>Sun, 30 Aug 2015 05:23:21 GMT</pubDate><content:encoded><![CDATA[<p>Interested in AngularJS and Material Design?  Then you really need to check out <a href="https://material.angularjs.org">Angular Material</a>.  I recently gave a presentation on Angular Material at Omaha's AngularJS meetup <a href="http://www.meetup.com/ng-nebraska/">ng-nebraska</a>.  Read on to see what I thought or check out the presentation <a href="http://nmackey.com/presentation-angular-material/">here</a>.</p>
 
-&lt;p&gt;Why is this awesome?&lt;/p&gt;
+<hr>
 
-&lt;p&gt;It makes your app faster.&lt;/p&gt;
+<h3 id="1materialdesign">1. Material Design</h3>
 
-&lt;p&gt;How?&lt;/p&gt;
+<ul>
+<li>Unveiled at Google IO 2014</li>
+<li>Google's new design for Android and web applications</li>
+<li>Set of design principles for applications based on physical principles of paper and ink combined with science and technology.</li>
+</ul>
 
-&lt;p&gt;Because watchers slow your app down.&lt;/p&gt;
+<iframe src="https://www.youtube.com/embed/Q8TXgCzxEnw?&rel=0&vq=large" frameborder="0" allowfullscreen></iframe>
 
-&lt;p&gt;Explain...&lt;/p&gt;
+<p><a href="https://www.google.com/design/spec/material-design/introduction.html">website</a></p>
 
-&lt;p&gt;When you have too many watchers on your page angular starts to slow down (all the research I've seen says this number is ~2000).  By using one-time binding you remove the watchers for your static content after it is rendered once.  So for example:&lt;/p&gt;
+<h4 id="basicprinciplesofmaterialdesign">Basic principles of Material Design</h4>
 
-&lt;p&gt;&lt;code&gt;&amp;lt;div&amp;gt;{{title}}&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/p&gt;
+<h5 id="environment">Environment</h5>
 
-&lt;p&gt;now can look like:&lt;/p&gt;
+<p>The material environment is a 3D space, which means all objects have x, y, and z dimensions. <br>
+<img src="http://nmackey.com/content/images/2015/08/environment_1.png" style="max-width:600px;margin:0;"></p>
 
-&lt;p&gt;&lt;code&gt;&amp;lt;div&amp;gt;{{::title}}&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/p&gt;
+<h5 id="materialproperties">Material Properties</h5>
 
-&lt;p&gt;&lt;a href="https://docs.angularjs.org/guide/expression#one-time-binding"&gt;one-time binding docs&lt;/a&gt;&lt;/p&gt;
+<p>Material has varying x &amp; y dimensions with a uniform thickness (1dp). <br>
+<img src="http://nmackey.com/content/images/2015/08/material_properties_1.png" style="max-width:600px;margin:0;"> <br>
+<img src="http://nmackey.com/content/images/2015/08/material_properties_2.png" style="max-width:600px;margin:0;"></p>
 
-&lt;hr&gt;
+<h5 id="elevationshadows">Elevation &amp; Shadows</h5>
 
-&lt;h3 id="ngmodeloptionsawesome"&gt;ng-model-options = awesome&lt;/h3&gt;
+<p>Shadows result naturally from the realtive elevation between material elements.  </p>
 
-&lt;p&gt;Have you ever wanted to debouce an input field or update your model on blur instead of after every change.  I in fact have directives in my code to handle these very things.  With angular 1.3 I can go delete that code and use ng-model-options instead.&lt;/p&gt;
+<video autoplay loop style="max-width:600px;">
+<source src="https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsM01aOVkzWXFYb1k/inline%20whatismaterial-materialprop-physicalprop-PaperShadow_01_xhdpi_008.webm" type="video/webm">                                          <source src="https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsSmZ5VlNBRHBXNXM/inline%20whatismaterial-materialprop-physicalprop-PaperShadow_01_xhdpi_008.mp4" type="video/mp4">
+</video>
 
-&lt;p&gt;You can use ng-model-options anywhere you use ng-model.  The different options include:&lt;/p&gt;
+<h3 id="2angularmaterial">2. Angular Material</h3>
 
-&lt;ul&gt;
-&lt;li&gt;updateOn&lt;/li&gt;
-&lt;li&gt;debounce&lt;/li&gt;
-&lt;li&gt;allowInvalid&lt;/li&gt;
-&lt;li&gt;getterSetter&lt;/li&gt;
-&lt;li&gt;timezone&lt;/li&gt;
-&lt;/ul&gt;
+<p>The Angular Material project is an implementation of Material Design in Angular.js. This project provides a set of reusable, well-tested, and accessible UI components based on the Material Design system.</p>
 
-&lt;p&gt;I'm going to walk through the two I'm going to be using right away...debounce and updateOn.&lt;/p&gt;
+<p><a href="https://material.angularjs.org">website</a></p>
 
-&lt;h4 id="debounce"&gt;debounce&lt;/h4&gt;
+<h5 id="caniuse">caniuse?</h5>
 
-&lt;p&gt;The following code debounces model changes for 1000ms.&lt;/p&gt;
+<ul>
+<li>Browser Support (n-1)</li>
+<li>Angular 1.3.x or higher</li>
+<li>Pre 1.0</li>
+<li>1.0 targeted for early fall</li>
+</ul>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;input type="text" name="search"
+<h5 id="highlights">Highlights</h5>
+
+<ul>
+<li>Themes</li>
+<li>Grid (flexbox)</li>
+<li>Input Elements</li>
+<li>Accessibility</li>
+<li>Touch support</li>
+</ul>
+
+<h5 id="wheredoistart">Where do I start?</h5>
+
+<ul>
+<li><a href="https://github.com/angular/bower-material">bower</a></li>
+<li><a href="https://www.npmjs.com/package/angular-material">npm</a></li>
+<li><a href="https://github.com/angular/material">github</a></li>
+</ul>
+
+<h5 id="reviewflexbox">Review flexbox</h5>
+
+<p>Review flexbox b/c angular material's grid system is based on it.</p>
+
+<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Nice guide</a></p>
+
+<h6 id="angulargulpgenerator">Angular Gulp Generator</h6>
+
+<p>Yeoman generator that will bootstrap an app for you with Angular Material.</p>
+
+<p><a href="https://github.com/Swiip/generator-gulp-angular">generator</a></p>
+
+<h3 id="3examples">3. Examples</h3>
+
+<p>We are going to setup angular material app for viewing and submitting talk proposals.</p>
+
+<ul>
+<li>Generator</li>
+<li>Navigation</li>
+<li>Font Icons</li>
+<li>Lists &amp; Forms</li>
+<li>Themes</li>
+<li>Accessibility</li>
+</ul>
+
+<p><a href="https://github.com/nmackey/presentation-angular-material-examples">code on github</a></p>
+
+<h3 id="4lessonslearned">4. Lessons Learned</h3>
+
+<h5 id="good">Good</h5>
+
+<ul>
+<li>Supported by google</li>
+<li>Uses Flexbox</li>
+<li>Pretty</li>
+<li>Provides Material Design for the web</li>
+<li>Not Bootstrap :)</li>
+</ul>
+
+<h5 id="bad">Bad</h5>
+
+<ul>
+<li>Not quite ready yet (pre 1.0 &amp; performance issues)</li>
+<li>Still missing a few things...maybe (datepicker just landed)</li>
+<li>Some widgets (directives) don't play well together (toolbar &amp; tabs)</li>
+<li>Missing some documentation (styling, options, services)</li>
+</ul>]]></content:encoded></item><item><title><![CDATA[Twice the work, half the time?]]></title><description><![CDATA[<p><img src="http://nmackey.com/content/images/2015/08/book.jpg" alt="Book"></p>
+
+<p>I had the pleasure to pick the book: The Art of Doing Twice the Work in Half the Time by JJ Sutherland.  Needless to say it was a great read.  It was great to hear from one of the founders of scrum how and why it came to be.  Since</p>]]></description><link>http://nmackey.com/twice-the-work-half-the-time/</link><guid isPermaLink="false">89d8f407-ae59-4bd2-8422-d2dfbb9a4147</guid><category><![CDATA[SCRUM]]></category><category><![CDATA[Agile]]></category><dc:creator><![CDATA[Nicholas Mackey]]></dc:creator><pubDate>Wed, 24 Jun 2015 05:22:00 GMT</pubDate><content:encoded><![CDATA[<p><img src="http://nmackey.com/content/images/2015/08/book.jpg" alt="Book"></p>
+
+<p>I had the pleasure to pick the book: The Art of Doing Twice the Work in Half the Time by JJ Sutherland.  Needless to say it was a great read.  It was great to hear from one of the founders of scrum how and why it came to be.  Since my work is going through some pains in getting agile and scrum running smoothly I was asked to share a presentation based on the book.  Keep reading or check out the presentation <a href="http://nmackey.com/twice-the-work-half-the-time/nmackey.com/presentation-scrum">here</a>.</p>
+
+<hr>
+
+<h3 id="1oldway">1. Old Way</h3>
+
+<h5 id="waterfall">Waterfall</h5>
+
+<ul>
+<li>try to plan it all out</li>
+<li>gantt charts</li>
+<li>limited customer interaction</li>
+</ul>
+
+<h5 id="whydoesntthiswork">Why doesn't this work?</h5>
+
+<ul>
+<li>Doesn't account for change</li>
+<li>People are bad at estimating</li>
+<li>Doesn't solicit feedback</li>
+<li>Usually we don't know everything</li>
+</ul>
+
+<h3 id="2newway">2. New Way</h3>
+
+<h5 id="scrum">SCRUM</h5>
+
+<ul>
+<li>Evolutionary</li>
+<li>Adaptive</li>
+<li>Self Corrective</li>
+<li>Small teams</li>
+<li>Prioritized tasks</li>
+<li>Daily stand-ups</li>
+</ul>
+
+<h5 id="whydoesthiswork">Why does this work?</h5>
+
+<ul>
+<li>Encourages improvement</li>
+<li>Encourages feedback</li>
+<li>Eliminates waste</li>
+<li>Usually we don't know everything</li>
+<li>Makes people happy</li>
+</ul>
+
+<h5 id="youmustplanforchangefailfast">You must plan for change &amp; fail fast</h5>
+
+<ul>
+<li>You want to figure out what you don't know</li>
+<li>You want to discover problems as soon as possible</li>
+</ul>
+
+<h5 id="proventodeliver">Proven to deliver</h5>
+
+<ul>
+<li>Fewer people</li>
+<li>Less time</li>
+<li>More stuff</li>
+<li>Higher quality</li>
+<li>Lower cost</li>
+</ul>
+
+<h3 id="3teams">3. Teams</h3>
+
+<h5 id="greatteamsare">Great teams are:</h5>
+
+<ul>
+<li>Autonomous</li>
+<li>Cross functional</li>
+<li>Empowered</li>
+<li>Small (7 +/- 2)</li>
+</ul>
+
+<h3 id="4timewaste">4. Time &amp; Waste</h3>
+
+<p>"Time is finite, treat it that way."</p>
+
+<h5 id="nomoremeetings">No more meetings</h5>
+
+<p>one 15 minute standup</p>
+
+<h5 id="nomultitasking">No multi-tasking</h5>
+
+<ul>
+<li>It makes you stupid and you are worse at both tasks</li>
+<li>Context switching is difficult and takes time</li>
+</ul>
+
+<h5 id="doitrightthefirsttime">Do it right the first time</h5>
+
+<ul>
+<li>Half done isn't done</li>
+<li>Fix issues right away</li>
+<li>It costs less and saves time</li>
+</ul>
+
+<h5 id="sustainability">Sustainability</h5>
+
+<ul>
+<li>Working long hours gets less done</li>
+<li>Don't be unreasonable</li>
+<li>No heroics</li>
+<li>No stupid policies</li>
+</ul>
+
+<h5 id="examples">Examples</h5>
+
+<ul>
+<li>Toyota</li>
+<li>Medco</li>
+</ul>
+
+<h3 id="5planning">5. Planning</h3>
+
+<ul>
+<li>Plan for reality not fantasy</li>
+<li>Only plan what you need to do</li>
+</ul>
+
+<h5 id="breakyourworkintostories">Break your work into stories</h5>
+
+<ul>
+<li>As a (who)</li>
+<li>I need (what)</li>
+<li>So that (why)</li>
+</ul>
+
+<h5 id="storiesshouldbesmall">Stories should be small</h5>
+
+<ul>
+<li>Independent</li>
+<li>Negotiable</li>
+<li>Valuable</li>
+<li>Estimable</li>
+<li>Small</li>
+<li>Testable</li>
+</ul>
+
+<h5 id="userelativesizing">Use relative sizing</h5>
+
+<ul>
+<li>People suck at absolute sizing</li>
+<li>People are good at relative sizing (story points)</li>
+</ul>
+
+<h5 id="velocity">Velocity</h5>
+
+<ul>
+<li>When you know how fast you are going you will know when you are going to get there</li>
+<li>Are you improving?</li>
+<li>When SCRUM is implemented well production can increase substantially</li>
+</ul>
+
+<h3 id="6priorities">6. Priorities</h3>
+
+<p>Delivering value...</p>
+
+<h5 id="makealistandcheckittwice">Make a list and check it twice</h5>
+
+<ul>
+<li>Make a list of everything for the project and prioritize it</li>
+<li>Highest value and lowest risk at the top</li>
+</ul>
+
+<h5 id="minimumviableproductmvp">Minimum Viable Product (MVP)</h5>
+
+<p>80% of the value is in 20% of the work</p>
+
+<h5 id="theproductowner">The Product Owner</h5>
+
+<p>What needs to be done and why you should do it</p>
+
+<h5 id="theteam">The Team</h5>
+
+<p>How to make it happen and who should do it</p>
+
+<h5 id="moneyfornothingandchangeforfree">Money for nothing and change for free</h5>
+
+<ul>
+<li>Create new things only as long as they deliver value</li>
+<li>Be willing to swap them for things of equal effort</li>
+<li>What is needed in the beginning is never what is actually needed</li>
+</ul>
+
+<h3 id="7happiness">7. Happiness</h3>
+
+<p>"Too often we just reward results, but what we really want to reward is people striving towards greatness"</p>
+
+<h5 id="whyishappinessimportant">Why is happiness important</h5>
+
+<ul>
+<li>Smarter decisions</li>
+<li>More creative</li>
+<li>Retention</li>
+<li>Accomplish more</li>
+</ul>
+
+<h5 id="arewegettingbetter">Are we getting better?</h5>
+
+<p>Every sprint we should be trying to get better at something</p>
+
+<h5 id="transparency">Transparency</h5>
+
+<p>Secrecy is poison</p>]]></content:encoded></item><item><title><![CDATA[Angular 1.3]]></title><description><![CDATA[<p>With the release of Angular 1.3 the angular team has added a few things that make it more performant, write less code, and help you figure out problems quicker and follow best practices.</p>
+
+<hr>
+
+<h3 id="isforperformance">'::' is for Performance</h3>
+
+<p>Angular 1.3 has introduced one-time bindings.  Useing the '::'</p>]]></description><link>http://nmackey.com/angular-1-3/</link><guid isPermaLink="false">4c064c1c-86e5-42cc-b1f6-3416a9daa995</guid><category><![CDATA[AngularJS]]></category><dc:creator><![CDATA[Nicholas Mackey]]></dc:creator><pubDate>Sun, 16 Nov 2014 04:35:46 GMT</pubDate><content:encoded><![CDATA[<p>With the release of Angular 1.3 the angular team has added a few things that make it more performant, write less code, and help you figure out problems quicker and follow best practices.</p>
+
+<hr>
+
+<h3 id="isforperformance">'::' is for Performance</h3>
+
+<p>Angular 1.3 has introduced one-time bindings.  Useing the '::' syntax we can tell angular we only want to bind a value once.</p>
+
+<p>Why is this awesome?</p>
+
+<p>It makes your app faster.</p>
+
+<p>How?</p>
+
+<p>Because watchers slow your app down.</p>
+
+<p>Explain...</p>
+
+<p>When you have too many watchers on your page angular starts to slow down (all the research I've seen says this number is ~2000).  By using one-time binding you remove the watchers for your static content after it is rendered once.  So for example:</p>
+
+<p><code>&lt;div&gt;{{title}}&lt;/div&gt;</code></p>
+
+<p>now can look like:</p>
+
+<p><code>&lt;div&gt;{{::title}}&lt;/div&gt;</code></p>
+
+<p><a href="https://docs.angularjs.org/guide/expression#one-time-binding">one-time binding docs</a></p>
+
+<hr>
+
+<h3 id="ngmodeloptionsawesome">ng-model-options = awesome</h3>
+
+<p>Have you ever wanted to debouce an input field or update your model on blur instead of after every change.  I in fact have directives in my code to handle these very things.  With angular 1.3 I can go delete that code and use ng-model-options instead.</p>
+
+<p>You can use ng-model-options anywhere you use ng-model.  The different options include:</p>
+
+<ul>
+<li>updateOn</li>
+<li>debounce</li>
+<li>allowInvalid</li>
+<li>getterSetter</li>
+<li>timezone</li>
+</ul>
+
+<p>I'm going to walk through the two I'm going to be using right away...debounce and updateOn.</p>
+
+<h4 id="debounce">debounce</h4>
+
+<p>The following code debounces model changes for 1000ms.</p>
+
+<pre><code>&lt;input type="text" name="search"
        ng-model="search"
-       ng-model-options="{ debounce: 1000 }" /&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+       ng-model-options="{ debounce: 1000 }" /&gt;
+</code></pre>
 
-&lt;h4 id="update"&gt;update&lt;/h4&gt;
+<h4 id="update">update</h4>
 
-&lt;p&gt;The following code will only update the model on blur.&lt;/p&gt;
+<p>The following code will only update the model on blur.</p>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;input type="text" name="search"
+<pre><code>&lt;input type="text" name="search"
        ng-model="search"
-       ng-model-options="{ updateOn: 'blur' }"&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+       ng-model-options="{ updateOn: 'blur' }"&gt;
+</code></pre>
 
-&lt;p&gt;&lt;a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions"&gt;ng-model-options docs&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions">ng-model-options docs</a></p>
 
-&lt;hr&gt;
+<hr>
 
-&lt;h3 id="givemeanghint"&gt;give me a ng-hint&lt;/h3&gt;
+<h3 id="givemeanghint">give me a ng-hint</h3>
 
-&lt;p&gt;Angular is working on a new library that can be used with angular 1.3 that helps developers spend less time figuring out what is wrong with their angular code.  Ever forget to inject a dependency that you are using?  Typo in your directive name?  Not sure of what the angular best practices are?  Angular now has your back.&lt;/p&gt;
+<p>Angular is working on a new library that can be used with angular 1.3 that helps developers spend less time figuring out what is wrong with their angular code.  Ever forget to inject a dependency that you are using?  Typo in your directive name?  Not sure of what the angular best practices are?  Angular now has your back.</p>
 
-&lt;h5 id="install"&gt;Install&lt;/h5&gt;
+<h5 id="install">Install</h5>
 
-&lt;p&gt;&lt;code&gt;npm install angular-hint&lt;/code&gt;&lt;/p&gt;
+<p><code>npm install angular-hint</code></p>
 
-&lt;h5 id="include"&gt;Include&lt;/h5&gt;
+<h5 id="include">Include</h5>
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;script type="path/to/angular/angular.js"&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;script type="path/to/angular-hint/hint.js"&amp;gt;&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>&lt;script type="path/to/angular/angular.js"&gt;&lt;/script&gt;
+&lt;script type="path/to/angular-hint/hint.js"&gt;&lt;/script&gt;
+</code></pre>
 
-&lt;h5 id="use"&gt;Use&lt;/h5&gt;
+<h5 id="use">Use</h5>
 
-&lt;p&gt;&lt;code&gt;&amp;lt;html ng-app="myApp" ng-hint&amp;gt;&amp;lt;/html&amp;gt;&lt;/code&gt;&lt;/p&gt;
+<p><code>&lt;html ng-app="myApp" ng-hint&gt;&lt;/html&gt;</code></p>
 
-&lt;p&gt;Now when you forget to inject a dependency angular will tell you.&lt;/p&gt;
+<p>Now when you forget to inject a dependency angular will tell you.</p>
 
-&lt;p&gt;When you misspell a directive in you dom angular will recommend the correct one.&lt;/p&gt;
+<p>When you misspell a directive in you dom angular will recommend the correct one.</p>
 
-&lt;p&gt;Use 'Ctrl' for naming your controllers instead of 'Controller' angular will let you know that it is best practice to use 'Controller'.&lt;/p&gt;
+<p>Use 'Ctrl' for naming your controllers instead of 'Controller' angular will let you know that it is best practice to use 'Controller'.</p>
 
-&lt;p&gt;&lt;a href="https://github.com/angular/angular-hint"&gt;ng-hint on github&lt;/a&gt;&lt;/p&gt;</description><link>http://nmackey.com/angular-1-3/</link><guid isPermaLink="false">4c064c1c-86e5-42cc-b1f6-3416a9daa995</guid><category>AngularJS</category><dc:creator>Nicholas Mackey</dc:creator><pubDate>Sun, 16 Nov 2014 04:35:46 GMT</pubDate></item></channel></rss>
+<p><a href="https://github.com/angular/angular-hint">ng-hint on github</a></p>]]></content:encoded></item></channel></rss>
