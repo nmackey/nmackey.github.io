@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Nicholas Mackey</title><description>Web development and other stuff...</description><link>http://nmackey.com/</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 01 Sep 2015 08:14:06 GMT</lastBuildDate><atom:link href="http://nmackey.com/tag/angular-material/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Angular in a Material World</title><description>&lt;p&gt;Interested in AngularJS and Material Design?  Then you really need to check out &lt;a href="https://material.angularjs.org"&gt;Angular Material&lt;/a&gt;.  I recently gave a presentation on Angular Material at Omaha's AngularJS meetup &lt;a href="http://www.meetup.com/ng-nebraska/"&gt;ng-nebraska&lt;/a&gt;.  Read on to see what I thought or check out the presentation &lt;a href="http://nmackey.com/presentation-angular-material/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+<rss xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:content="https://purl.org/rss/1.0/modules/content/" xmlns:atom="https://www.w3.org/2005/Atom" xmlns:media="https://search.yahoo.com/mrss/" version="2.0"><channel><title>Nicholas Mackey</title><description>Web development and other stuff...</description><link>https://nmackey.com/</link><generator>Ghost 0.6</generator><lastBuildDate>Tue, 01 Sep 2015 08:14:06 GMT</lastBuildDate><atom:link href="https://nmackey.com/tag/angular-material/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Angular in a Material World</title><description>&lt;p&gt;Interested in AngularJS and Material Design?  Then you really need to check out &lt;a href="https://material.angularjs.org"&gt;Angular Material&lt;/a&gt;.  I recently gave a presentation on Angular Material at Omaha's AngularJS meetup &lt;a href="https://www.meetup.com/ng-nebraska/"&gt;ng-nebraska&lt;/a&gt;.  Read on to see what I thought or check out the presentation &lt;a href="https://nmackey.com/presentation-angular-material/"&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;hr&gt;
 
@@ -6,7 +6,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;Unveiled at Google IO 2014&lt;/li&gt;
-&lt;li&gt;Google's&lt;/li&gt;&lt;/ul&gt;</description><link>http://nmackey.com/angular-in-a-material-world/</link><guid isPermaLink="false">2bba0945-ebe2-47bb-a7ab-26ba40bd9d46</guid><category>AngularJS</category><category>Angular Material</category><dc:creator>Nicholas Mackey</dc:creator><pubDate>Sun, 30 Aug 2015 05:23:21 GMT</pubDate><content:encoded>&lt;p&gt;Interested in AngularJS and Material Design?  Then you really need to check out &lt;a href="https://material.angularjs.org"&gt;Angular Material&lt;/a&gt;.  I recently gave a presentation on Angular Material at Omaha's AngularJS meetup &lt;a href="http://www.meetup.com/ng-nebraska/"&gt;ng-nebraska&lt;/a&gt;.  Read on to see what I thought or check out the presentation &lt;a href="http://nmackey.com/presentation-angular-material/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;li&gt;Google's&lt;/li&gt;&lt;/ul&gt;</description><link>https://nmackey.com/angular-in-a-material-world/</link><guid isPermaLink="false">2bba0945-ebe2-47bb-a7ab-26ba40bd9d46</guid><category>AngularJS</category><category>Angular Material</category><dc:creator>Nicholas Mackey</dc:creator><pubDate>Sun, 30 Aug 2015 05:23:21 GMT</pubDate><content:encoded>&lt;p&gt;Interested in AngularJS and Material Design?  Then you really need to check out &lt;a href="https://material.angularjs.org"&gt;Angular Material&lt;/a&gt;.  I recently gave a presentation on Angular Material at Omaha's AngularJS meetup &lt;a href="https://www.meetup.com/ng-nebraska/"&gt;ng-nebraska&lt;/a&gt;.  Read on to see what I thought or check out the presentation &lt;a href="https://nmackey.com/presentation-angular-material/"&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;hr&gt;
 
@@ -27,20 +27,20 @@
 &lt;h5 id="environment"&gt;Environment&lt;/h5&gt;
 
 &lt;p&gt;The material environment is a 3D space, which means all objects have x, y, and z dimensions. &lt;br&gt;
-&lt;img src="http://nmackey.com/content/images/2015/08/environment_1.png" style="max-width:600px;margin:0;"&gt;&lt;/p&gt;
+&lt;img src="https://nmackey.com/content/images/2015/08/environment_1.png" style="max-width:600px;margin:0;"&gt;&lt;/p&gt;
 
 &lt;h5 id="materialproperties"&gt;Material Properties&lt;/h5&gt;
 
 &lt;p&gt;Material has varying x &amp;amp; y dimensions with a uniform thickness (1dp). &lt;br&gt;
-&lt;img src="http://nmackey.com/content/images/2015/08/material_properties_1.png" style="max-width:600px;margin:0;"&gt; &lt;br&gt;
-&lt;img src="http://nmackey.com/content/images/2015/08/material_properties_2.png" style="max-width:600px;margin:0;"&gt;&lt;/p&gt;
+&lt;img src="https://nmackey.com/content/images/2015/08/material_properties_1.png" style="max-width:600px;margin:0;"&gt; &lt;br&gt;
+&lt;img src="https://nmackey.com/content/images/2015/08/material_properties_2.png" style="max-width:600px;margin:0;"&gt;&lt;/p&gt;
 
 &lt;h5 id="elevationshadows"&gt;Elevation &amp;amp; Shadows&lt;/h5&gt;
 
 &lt;p&gt;Shadows result naturally from the realtive elevation between material elements.  &lt;/p&gt;
 
-&lt;video autoplay loop style="max-width:600px;"&gt;  
-&lt;source src="https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsM01aOVkzWXFYb1k/inline%20whatismaterial-materialprop-physicalprop-PaperShadow_01_xhdpi_008.webm" type="video/webm"&gt;                                          &lt;source src="https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsSmZ5VlNBRHBXNXM/inline%20whatismaterial-materialprop-physicalprop-PaperShadow_01_xhdpi_008.mp4" type="video/mp4"&gt;  
+&lt;video autoplay loop style="max-width:600px;"&gt;
+&lt;source src="https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsM01aOVkzWXFYb1k/inline%20whatismaterial-materialprop-physicalprop-PaperShadow_01_xhdpi_008.webm" type="video/webm"&gt;                                          &lt;source src="https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsSmZ5VlNBRHBXNXM/inline%20whatismaterial-materialprop-physicalprop-PaperShadow_01_xhdpi_008.mp4" type="video/mp4"&gt;
 &lt;/video&gt;
 
 &lt;h3 id="2angularmaterial"&gt;2. Angular Material&lt;/h3&gt;
