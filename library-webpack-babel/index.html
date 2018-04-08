@@ -87,18 +87,18 @@
 
 <h3 id="1webpackbabel">1. So you want to create a library?</h3>
 
-<p>At work we are redesigning a good chuck of our main web application.  As part of that effort a co-worker and I pushed to update our page loading indicator.  We had both used and liked the progressbar/spinner library <a href="https://github.com/rstacruz/nprogress">nprogress</a> (It is a super easy to use loading indicator that is easy to customize).  So we asked our design team if we could include it in our new design and they approved.</p>
-<p>I found out while doing our accessibility testing that this library has some accessibility breaks.  As accessibility has been a big focus at our company over the last year I wasn't pleased with this.  Also I didn't want to go back to our old loading indicator and go back to the design team with another solution I did what any good front-end developer would do:</p>
+<p>At work we are redesigning a good chuck of our main web application.  As part of that effort a co-worker and I pushed to update our page loading indicator.  We had both used and liked the progressbar/spinner library <a href="https://github.com/rstacruz/nprogress">nprogress</a> (It is an easy to use loading indicator that is easy to customize).  So we asked our design team if we could include it in our new design and they approved.</p>
+<p>I found out while doing our accessibility testing that this library has some accessibility breaks.  As accessibility has been a big focus at our company over the last year I wasn't pleased with this.  Also I didn't want to go back to our old loading indicator or go back to the design team with another solution.  So I did what any good front-end developer would do:</p>
 <ul>
     <li>I went to the github issues page for the library to see if anyone else had submitted this request...</li>
     <li>Having found an issue about accessibility I was initially relieved...</li>
-    <li>Realizing that the issue was almost a year old and no changes except readme changes had been made in the last couple years I was less excited...</li>
+    <li>Realizing that the issue was almost a year old and no changes except readme updates had been made in the last couple years I was less excited...</li>
     <li>So I forked the repo and made a commit to fix the accessibility changes</li>
     <li>Updated our application at work to point to the commit I had made in my forked version of the library</li>
 </ul>
-<p>This initially got me past my problem of breaking the accessibility of our application.  I also didn't like the prospect of having our production application pointing to a commit in my personal repo.  I wasn't planning on deleting the repo or something but it didn't feel right having our app reliant on my personal github repo.  So I decided this would be the perfect opprotunity for me to create my own open source library and publish it to <a href="https://www.npmjs.com/">NPM</a>.</p>
+<p>This initially got me past my problem of breaking the accessibility of our application.  However I didn't like the prospect of having our production application pointing to a commit in my personal repo.  I wasn't planning on deleting the repo or something but it didn't feel right having our app reliant on my personal github repo.  So I decided this would be the perfect opprotunity for me to create my own open source library and publish it to <a href="https://www.npmjs.com/">NPM</a>.</p>
 
-<h3 id="2webpackbabel">2. Webpack & Babel Part 1 - tooling & build setup).</h3>
+<h3 id="2webpackbabel">2. Webpack & Babel Part 1 - tooling & build setup.</h3>
 
 <p>So the inital configuration for webpack & babel is pretty 'easy' to setup.  I have setup it up so many times over the past couple years that I have the hang of it, but when you really think about all you have to do it is pretty crazy.  For beginners it is a pretty daunting task; you need to setup a '.babelrc' file, a webpack config file, add all of the these libraries to your 'package.json'.  I have provided examples of these files below...</p>
 
@@ -157,7 +157,7 @@
     ]
 }</code></pre>
 
-<pre><code>.babelrc
+<pre><code>.babelrc (targeting IE11 & test plugin for Jest)
 
 {
     "presets": [
@@ -264,7 +264,7 @@ module.exports = config;</code></pre>
 
 <p>Whew...  This is why things like create-react-app are great and other CLI tools and generators exist.  Once you do that once you pretty much never want to do it again and just learn to copy and paste it from your last project.</p>
 
-<p>I also had to setup a bunch of other things like <a href="https://facebook.github.io/jest/">jest</a> for unit testing, <a href="https://devexpress.github.io/testcafe/">testcafe</a> (with <a href="https://www.axe-core.org/">axe</a>) for my accessibility testing, eslint for code style & linting, etc.  Setting up these tools can also take a lot of time for the beginner too, but I'm not going to go over that today.</p>
+<p>I also had to setup a bunch of other things like <a href="https://facebook.github.io/jest/">jest</a> for unit testing, <a href="https://devexpress.github.io/testcafe/">testcafe</a> (with <a href="https://www.axe-core.org/">axe</a>) for my accessibility testing, <a href="https://eslint.org/">eslint</a> for code style & linting, etc.  Setting up these tools can also take a lot of time for the beginner too, but I'm not going to go over that today.</p>
 
 <h3 id="3webpackbabel">3. Writing the code.</h3>
 
@@ -346,6 +346,50 @@ If you are looking for something that won't modify globals to be used in a tool/
 "plugins": ["transform-runtime"]</code></pre>
 
 <p>So in full disclosure I ended up deciding against this last step.  I didn't like that this required me to add a dependency to my project.  All of my other dependencies were devDependencies only.  So the route I took was to manually polyfill these two items myself.  It was easy to replace my use of Object.assign() with my own assign() utility function that accomplised the same thing and removing my use of promise.finally() could be accomplished by just using then() & catch().  I made these decisions solely out of the desire to have a dependency free library.</p>
+
+<h3 id="5webpackbabel">5. Publish to NPM</h3>
+
+<p>Now that got my code all setup I just need to get it published out to NPM.  This part is pretty straight forward as NPM has made it pretty easy.  First you need to setup an account at NPM.  Second you just need to make sure you have few things inside of your package.json file setup.</p>
+
+<ul>
+    <li>name: library name</li>
+    <li>author: your name & info</li>
+    <li>main: location of your library for module importing</li>
+    <li>license: license type of your library</li>
+    <li>version: version of your library</li>
+    <li>repository: github repo</li>
+    <li>keywords: search terms for people to locate your library</li>
+</ul>
+
+<pre><code>package.json
+
+{
+    "name": "accessible-nprogress",
+    "author": "Nicholas Mackey <nicholasmackey@gmail.com>",
+    "description": "Simple slim accessible progress bars",
+    "main": "dist/accessible-nprogress.js",
+    "license": "MIT",
+    "version": "1.0.0",
+    "repository": "nmackey/accessible-nprogress",
+    "keywords": [
+        "progress",
+        "progressbar",
+        "spinner",
+        "accessible",
+        "loading",
+        "xhr",
+        "ajax",
+        "promise"
+    ]
+}</code></pre>
+
+<p>Now with all the setup done there is just one last step to publish your library.</p>
+
+<pre><code>npm publish</code></pre>
+
+<p>Your library has now been published to NPM.</p>
+
+<h3 id="6webpackbabel">6. Wrapup</h3>
 
 <p>And that's it... just those few... short... steps and you have create your own open source libary that you can publish to NPM as well :)</p>
 
