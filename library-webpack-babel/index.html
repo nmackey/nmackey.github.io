@@ -292,19 +292,27 @@ module.exports = config;</code></pre>
 
 <p>I knew I could accomplish the first three items by using something called by <a href="https://github.com/umdjs/umd">UMD</a> (Universal Module Definition), but I didn't know how to do this in my application with webpack and babel.  First I thought I could just add the code manually which I've seen in other libraries...</p>
 
-<pre><code>(function(root, factory) {
-if (typeof define === 'function' && define.amd) {
-    define(factory);
-} else if (typeof exports === 'object') {
-    module.exports = factory();
-} else {
-    root.NProgress = factory();
-}
-})(this, function() {</code></pre>
+<pre><code>(function (root, factory) {
+    if (typeof exports === 'object') {
+        // CommonJS
+        module.exports = factory(require('b'));
+    } else if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['b'], function (b) {
+            return (root.returnExportsGlobal = factory(b));
+        });
+    } else {
+        // Global Variables
+        root.returnExportsGlobal = factory(root.b);
+    }
+}(this, function (b) {
+    // Your actual module
+    return {};
+}));</code></pre>
 
 <p>However when I tried to add some code like this at the top of my module I ran into trouble.  The code I have above works great if you only have one js file and you aren't using a bundler (like webpack) to import other modules into your entry point, but I had broken my code into a couple modules and was trying to have small managable modules for maintainability.</p>
 
-<p>After several hours of googling and trying to figure out what I was doing wrong I finally stumbled upon a feature in webpack that makes all of this much easier... There is a <a href="https://webpack.js.org/guides/author-libraries/">page</a> in the webpack docs where I learned that you can add a few extra options to my webpack.config.js 'output' setup and things would pretty much work how I wanted.</p>
+<p>After several some time googling and trying to figure out what I was doing wrong I finally stumbled upon a feature in webpack that makes all of this much easier... There is a <a href="https://webpack.js.org/guides/author-libraries/">page</a> in the webpack docs where I learned that you can add a few extra options to my webpack.config.js 'output' setup and things would pretty much work how I wanted.</p>
 
 <ul>
     <li>library: string - library name</li>
@@ -382,7 +390,7 @@ If you are looking for something that won't modify globals to be used in a tool/
 
 <pre><code>npm publish</code></pre>
 
-<p>Your library has now been published to NPM.</p>
+<p>Your library has now been published to NPM!</p>
 
 <h3 id="6webpackbabel">6. Wrapup</h3>
 
