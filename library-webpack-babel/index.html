@@ -1,0 +1,443 @@
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Building a libary with Webpack & Babel</title>
+  <meta name="description" content="">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="../favicon.ico">
+
+  <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=f6326b981e">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+
+  <link rel="canonical" href="https://nmackey.com/library-webpack-babel/">
+
+  <meta property="og:site_name" content="Nicholas Mackey">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Building a libary with Webpack & Babel">
+  <meta property="og:description" content="I just got done building my first open source library, and to my surprise it took me awhile to figure out all the ins and outs of building it with webpack and babel.">
+  <meta property="og:url" content="https://nmackey.com/library-webpack-babel/">
+  <meta property="article:published_time" content="2018-04-07T14:41:40.703Z">
+  <meta property="article:modified_time" content="2018-04-07T14:41:40.703Z">
+  <meta property="article:tag" content="Webpack">
+  <meta property="article:tag" content="Babel">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building a libary with Webpack & Babel">
+  <meta name="twitter:description" content="I just got done building my first open source library, and to my surprise it took me awhile to figure out all the ins and outs of building it with webpack and babel.">
+  <meta name="twitter:url" content="https://nmackey.com/library-webpack-babel/">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "publisher": "Nicholas Mackey",
+  "author": {
+      "@type": "Person",
+      "name": "Nicholas Mackey",
+      "image": "//www.gravatar.com/avatar/2a237b12443e3a532471a0d4dfc4aeb1?d=404&s=250",
+      "url": "https://nmackey.com/author/nicholas",
+      "sameAs": null,
+      "description": null
+  },
+  "headline": "Building a libary with Webpack & Babel",
+  "url": "https://nmackey.com/library-webpack-babel/",
+  "datePublished": "2018-04-07T14:41:40.703Z",
+  "dateModified": "2018-04-07T14:41:40.703Z",
+  "description": "I just got done building my first open source library, and to my surprise it took me awhile to figure out all the ins and outs of building it with webpack and babel."
+}
+  </script>
+
+  <meta name="generator" content="Ghost 0.6">
+</head>
+<body class="post-template tag-webpack tag-babel">
+
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav  clearfix">
+      <a class="back-button icon-arrow-left" href="https://nmackey.com">Home</a>
+      <a class="social-button linkedin-button icon-linkedin" href="https://www.linkedin.com/in/nicholas-mackey-5460342a/"></a>
+      <a class="social-button github-button icon-github" href="https://github.com/nmackey/"></a>
+      <a class="social-button twitter-button icon-twitter" href="https://twitter.com/nicholas_mackey"></a>
+  </nav>
+</header>
+
+<main class="content" role="main">
+
+  <article class="post tag-webpack tag-babel">
+
+      <header class="post-header">
+          <h1 class="post-title">Building a libary with Webpack & Babel</h1>
+          <section class="post-meta">
+              <time class="post-date" datetime="2018-04-07">7 April 2018</time>  on <a href="../tag/webpack/">Webpack</a>, <a href="../tag/babel/">Babel</a>
+          </section>
+      </header>
+
+      <section class="post-content">
+
+<p>I just got done building my first <a href="https://github.com/nmackey/accessible-nprogress">open source library</a>, and to my surprise it took me awhile to figure out all the ins and outs of building it with <a href="https://webpack.js.org/">webpack</a> and <a href="https://babeljs.io/">babel</a>.  As someone who builds single page apps for a living and is very familiar with webpack, babel, and their related tools this was somewhat frustrating.  I thought I would share my experience here so others could learn from my pain.</p>
+
+<hr>
+
+<h3 id="1webpackbabel">1. So you want to create a library?</h3>
+
+<p>At work we are redesigning a good chuck of our main web application.  As part of that effort a co-worker and I pushed to update our page loading indicator.  We had both used and liked the progressbar/spinner library <a href="https://github.com/rstacruz/nprogress">nprogress</a> (It is a super easy to use loading indicator that is easy to customize).  So we asked our design team if we could include it in our new design and they approved.</p>
+<p>I found out while doing our accessibility testing that this library has some accessibility breaks.  As accessibility has been a big focus at our company over the last year I wasn't pleased with this.  Also I didn't want to go back to our old loading indicator and go back to the design team with another solution I did what any good front-end developer would do:</p>
+<ul>
+    <li>I went to the github issues page for the library to see if anyone else had submitted this request...</li>
+    <li>Having found an issue about accessibility I was initially relieved...</li>
+    <li>Realizing that the issue was almost a year old and no changes except readme changes had been made in the last couple years I was less excited...</li>
+    <li>So I forked the repo and made a commit to fix the accessibility changes</li>
+    <li>Updated our application at work to point to the commit I had made in my forked version of the library</li>
+</ul>
+<p>This initially got me past my problem of breaking the accessibility of our application.  I also didn't like the prospect of having our production application pointing to a commit in my personal repo.  I wasn't planning on deleting the repo or something but it didn't feel right having our app reliant on my personal github repo.  So I decided this would be the perfect opprotunity for me to create my own open source library and publish it to <a href="https://www.npmjs.com/">NPM</a>.</p>
+
+<h3 id="2webpackbabel">2. Webpack & Babel Part 1 - tooling & build setup).</h3>
+
+<p>So the inital configuration for webpack & babel is pretty 'easy' to setup.  I have setup it up so many times over the past couple years that I have the hang of it, but when you really think about all you have to do it is pretty crazy.  For beginners it is a pretty daunting task; you need to setup a '.babelrc' file, a webpack config file, add all of the these libraries to your 'package.json'.  I have provided examples of these files below...</p>
+
+<pre><code>package.json
+
+{
+    "name": "accessible-nprogress",
+    "author": "Nicholas Mackey <nicholasmackey@gmail.com>",
+    "description": "Simple slim accessible progress bars",
+    "main": "dist/accessible-nprogress.js",
+    "style": "dist/accessible-nprogress.css",
+    "types": "typings/index.d.ts",
+    "license": "MIT",
+    "version": "1.0.0",
+    "repository": "nmackey/accessible-nprogress",
+    "scripts": {
+        "pretest": "yarn lint",
+        "lint": "eslint --ext .js --quiet src",
+        "test": "yarn test:unit --coverage && yarn build && yarn build:min && yarn test:acceptance",
+        "test:unit": "jest --config config/jest.config.js",
+        "test:acceptance": "testcafe chrome:headless test-acceptance/tests/**/*test* -S -s test-acceptance/screenshots",
+        "build": "NODE_ENV=development webpack --config config/webpack.config.js",
+        "build:min": "NODE_ENV=production webpack --config config/webpack.config.js"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "axe-testcafe": "^1.1.0",
+        "babel": "^6.23.0",
+        "babel-core": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-eslint": "^8.2.2",
+        "babel-jest": "^22.4.3",
+        "babel-loader": "^7.1.4",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+        "css-loader": "^0.28.11",
+        "eslint": "^4.19.1",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-plugin-import": "^2.9.0",
+        "eslint-plugin-testcafe": "^0.2.1",
+        "extract-text-webpack-plugin": "^3.0.2",
+        "jest": "^22.4.3",
+        "semver": "~5.5.0",
+        "style-loader": "^0.20.3",
+        "testcafe": "^0.19.1",
+        "webpack": "^3.10.0"
+    },
+    "keywords": [
+        "progress",
+        "progressbar",
+        "spinner",
+        "accessible",
+        "loading",
+        "xhr",
+        "ajax",
+        "promise"
+    ]
+}</code></pre>
+
+<pre><code>.babelrc
+
+{
+    "presets": [
+        [ "env", { "targets": { "ie": 11 } } ]
+    ],
+    "plugins": [],
+    "env": {
+        "test": {
+            "plugins": [
+                "transform-es2015-modules-commonjs"
+            ]
+        }
+    }
+}</code></pre>
+
+<pre><code>webpack.config.js
+
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+
+const libraryName = 'accessible-nprogress';
+
+const BANNER = `
+    ${(new Date()).toString()}
+    Accessible NProgress, (c) 2018 Nicholas Mackey - http://nmackey.com/accessible-nprogress
+    @license MIT
+`;
+
+let outputJs;
+let outputCss;
+const plugins = [
+    new webpack.BannerPlugin(BANNER),
+    new webpack.NoEmitOnErrorsPlugin(),
+];
+
+if (process.env.NODE_ENV === 'production') {
+    plugins.push(new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        debug: false,
+    }));
+    plugins.push(new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            warnings: false,
+            drop_console: true,
+            unused: true,
+        },
+        output: {
+            ascii_only: true,
+        },
+        sourceMap: false,
+        mangle: true,
+    }));
+    outputJs = `${libraryName}.min.js`;
+    outputCss = `${libraryName}.min.css`;
+} else {
+    outputJs = `${libraryName}.js`;
+    outputCss = `${libraryName}.css`;
+}
+
+plugins.push(new ExtractTextPlugin(outputCss));
+
+const config = {
+    entry: path.resolve('src/index.js'),
+    output: {
+        path: path.resolve('dist'),
+        filename: outputJs,
+    },
+    resolve: {
+        extensions: ['.js'],
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                include: [
+                    path.resolve('src'),
+                ],
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        cacheDirectory: '.babelcache',
+                    },
+                },
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                        loader: 'css-loader',
+                        options: { minimize: process.env.NODE_ENV === 'production' },
+                        },
+                    ],
+                }),
+            },
+        ],
+    },
+    plugins,
+};
+
+module.exports = config;</code></pre>
+
+<p>Whew...  This is why things like create-react-app are great and other CLI tools and generators exist.  Once you do that once you pretty much never want to do it again and just learn to copy and paste it from your last project.</p>
+
+<p>I also had to setup a bunch of other things like <a href="https://facebook.github.io/jest/">jest</a> for unit testing, <a href="https://devexpress.github.io/testcafe/">testcafe</a> (with <a href="https://www.axe-core.org/">axe</a>) for my accessibility testing, eslint for code style & linting, etc.  Setting up these tools can also take a lot of time for the beginner too, but I'm not going to go over that today.</p>
+
+<h3 id="3webpackbabel">3. Writing the code.</h3>
+
+<p>This was the easiest part of the whole endevor, but it did take a little bit of work.  Since the library was a couple years old and its build wasn't passing I decided I would keep the same functionality but rewrite it using newer javascript syntax, removing support for old browsers (< IE11), and adding new test frameworks (that ensured ADA compliance).</p>
+<p>First I had to understand what the old code was doing, which wasn't too bad.  I then started developing the library using a lot of the same logic but breaking out a public API vs internal functions.  I was able to complete the code & testing pretty quickly and was pretty happy with what I had achieved.  The next part is really where I struggled.  I had written single page web apps for years but I hadn't tried to pushlish my own library that could be used by others as a imported module or a global by inserting a script tag.</p>
+
+<h3 id="4webpackbabel">4. Webpack & Babel Part 2 - setup for a library</h3>
+
+<p>So like I was saying I had a few requirements for what I was trying to accomplish...</p>
+
+<ul>
+    <li>Allow the library to be used by importing it via ES2015 imports</li>
+
+    <pre><code>import NProgress from 'accessible-nprogress';</code></pre>
+
+    <li>Allow the library to be used by importing it via commonjs 'require' syntax</li>
+
+    <pre><code>const NProgress = require('accessible-nprogress');</code></pre>
+
+    <li>Allow the library to be used by importing it via a script tag</li>
+
+    <pre><code>&lt;script src="https://unpkg.com/accessible-nprogress/dist/accessible-nprogress.min.js"&gt;&lt;/script&gt;</code></pre>
+
+    <li>Transpile and polyfill (without using babel polyfill) it was friendly to others</li>
+</ul>
+
+<p>I knew I could accomplish the first three items by using something called by <a href="https://github.com/umdjs/umd">UMD</a> (Universal Module Definition), but I didn't know how to do this in my application with webpack and babel.  First I thought I could just add the code manually which I've seen in other libraries...</p>
+
+<pre><code>(function(root, factory) {
+if (typeof define === 'function' && define.amd) {
+    define(factory);
+} else if (typeof exports === 'object') {
+    module.exports = factory();
+} else {
+    root.NProgress = factory();
+}
+})(this, function() {</code></pre>
+
+<p>However when I tried to add some code like this at the top of my module I ran into trouble.  The code I have above works great if you only have one js file and you aren't importing other modules into your entry point, but I had broken my code into a couple modules and was trying to break my code up into some small managable modules for maintainability.</p>
+
+<p>After several hours of googling and trying to figure out what I was doing wrong I finally stumbled upon a feature in webpack that makes all of this much easier... <a href="https://webpack.js.org/guides/author-libraries/">webpack docs</a> where I learned that I could add a few extra options to my webpack.config.js output setup and things would pretty much work how I wanted.</p>
+
+<pre><code> output: {
+    path: path.resolve('dist'),
+    filename: outputJs,
+    library: 'NProgress',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+},</code></pre>
+
+<p>Notice the library, libraryTarget, and umdNamedDefine - this would essentially add the snippet of code I showed above to my bundled/transpiled library.  This almost got me home.  I had to do one other thing to get my library to export correctly.  I was initially getting my library namespaced incorrectly b/c I was using a 'default' export.</p>
+
+<pre><code>export default NProgress();
+// resulted in
+NProgress.NProgress.start();</code></pre>
+
+<p>This wasn't what I wanted.  After a little more googling and puzzling I figured out I could use a commonjs export to fix my problem.</p>
+
+<pre><code>module.exports = NProgress();
+// resulted in
+NProgress.start();</code></pre>
+
+<p>Alright so now I had my module all setup for use in web apps all over the web except I had to deal with the proper way to polyfill my ES2015+ features that wouldn't get transpiled.  There were two javascript syntax features that I was using in particular that I needed to resolve.  I was using Object.assign() and promise.finally().  I remembered some documentation I had run across a couple years back about how you don't want to use babel-polyfill in a library but only in a web app itself otherwise you will cause issues with global stuff...</p>
+
+<pre><code>https://babeljs.io/docs/usage/polyfill/
+If you are looking for something that won't modify globals to be used in a tool/library, checkout the transform-runtime plugin.</code></pre>
+
+<p>The answer to this problem is to use the <a href="https://babeljs.io/docs/plugins/transform-runtime">Runtime Transform</a>.  You can add a couple of imports to your package.json and add a plugin to your .babelrc file and you should be good to go.</p>
+
+<pre><code>package.json
+"dependencies": {
+    "babel-runtime": "6.26.0",
+},
+"devDependencies": {
+    "babel-plugin-transform-runtime": "6.23.0",
+},</code></pre>
+
+<pre><code>.babelrc
+"plugins": ["transform-runtime"]</code></pre>
+
+<p>So in full disclosure I ended up deciding against this last step.  I didn't like that this required me to add a dependency to my project.  All of my other dependencies were devDependencies only.  So the route I took was to manually polyfill these two items myself.  It was easy to replace my use of Object.assign() with my own assign() utility function that accomplised the same thing and removing my use of promise.finally() could be accomplished by just using then() & catch().  I made these decisions solely out of the desire to have a dependency free library.</p>
+
+<p>And that's it... just those few... short... steps and you have create your own open source libary that you can publish to NPM as well :)</p>
+
+<p>To see the final result and all of the other project tools and configuration that I use head on over to my <a href="https://github.com/nmackey/accessible-nprogress">project</a> and check it out!  Better yet - check out the demo <a href="https://nmackey.com/accessible-nprogress/">here</a> and if you like it add it to your next project.</p>
+
+<pre><code>$ npm install --save accessible-nprogress</code></pre>
+
+      </section>
+
+      <footer class="post-footer">
+
+
+          <figure class="author-image">
+              <a class="img" href="../author/nicholas/" style="background-image: url(https://www.gravatar.com/avatar/2a237b12443e3a532471a0d4dfc4aeb1?d=404&amp;s=250)"><span class="hidden">Nicholas Mackey's Picture</span></a>
+          </figure>
+
+          <section class="author">
+              <h4><a href="../author/nicholas/">Nicholas Mackey</a></h4>
+
+                  <p>Read <a href="../author/nicholas/">more posts</a> by this author.</p>
+              <div class="author-meta">
+
+
+              </div>
+          </section>
+
+
+          <section class="share">
+              <h4>Share this post</h4>
+              <a class="icon-twitter" href="https://twitter.com/share?text=Decorate%20the%20World&amp;url=https://nmackey.com/library-webpack-babel/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                  <span class="hidden">Twitter</span>
+              </a>
+              <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://nmackey.com/library-webpack-babel/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                  <span class="hidden">Facebook</span>
+              </a>
+              <a class="icon-google-plus" href="https://plus.google.com/share?url=https://nmackey.com/library-webpack-babel/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                  <span class="hidden">Google+</span>
+              </a>
+          </section>
+
+      </footer>
+
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'nmackey'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </article>
+
+</main>
+
+
+
+  <footer class="site-footer clearfix">
+       <section class="copyright"><a href="https://nmackey.com">Nicholas Mackey</a> © 2018</section>
+       <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+  </footer>
+
+  <script src="../public/jquery.js?v=f6326b981e"></script>
+
+  <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=f6326b981e"></script>
+  <script type="text/javascript" src="../assets/js/index.js?v=f6326b981e"></script>
+
+  <script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nmackey'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-56772846-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
