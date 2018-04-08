@@ -112,7 +112,7 @@
     "style": "dist/accessible-nprogress.css",
     "types": "typings/index.d.ts",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "repository": "nmackey/accessible-nprogress",
     "scripts": {
         "pretest": "yarn lint",
@@ -140,7 +140,6 @@
         "eslint-plugin-testcafe": "^0.2.1",
         "extract-text-webpack-plugin": "^3.0.2",
         "jest": "^22.4.3",
-        "semver": "~5.5.0",
         "style-loader": "^0.20.3",
         "testcafe": "^0.19.1",
         "webpack": "^3.10.0"
@@ -269,7 +268,7 @@ module.exports = config;</code></pre>
 <h3 id="3webpackbabel">3. Writing the code.</h3>
 
 <p>This was the easiest part of the whole endevor, but it did take a little bit of work.  Since the library was a couple years old and its build wasn't passing I decided I would keep the same functionality but rewrite it using newer javascript syntax, removing support for old browsers (< IE11), and adding new test frameworks (that ensured ADA compliance).</p>
-<p>First I had to understand what the old code was doing, which wasn't too bad.  I then started developing the library using a lot of the same logic but breaking out a public API vs internal functions.  I was able to complete the code & testing pretty quickly and was pretty happy with what I had achieved.  The next part is really where I struggled.  I had written single page web apps for years but I hadn't tried to pushlish my own library that could be used by others as a imported module or a global by inserting a script tag.</p>
+<p>First I had to understand what the old code was doing, which wasn't too bad.  I then started developing the library using a lot of the same logic but breaking out a public API vs internal functions.  I was able to complete the code & testing pretty quickly and was pretty happy with what I had achieved.  The next part is what really frustrated me.  I had written single page web apps for years but I hadn't tried to pushlish my own library that could be used by others as an imported module or a global by inserting a script tag.</p>
 
 <h3 id="4webpackbabel">4. Webpack & Babel Part 2 - setup for a library</h3>
 
@@ -307,25 +306,21 @@ if (typeof define === 'function' && define.amd) {
 
 <p>After several hours of googling and trying to figure out what I was doing wrong I finally stumbled upon a feature in webpack that makes all of this much easier... There is a <a href="https://webpack.js.org/guides/author-libraries/">page</a> in the webpack docs where I learned that you can add a few extra options to my webpack.config.js 'output' setup and things would pretty much work how I wanted.</p>
 
-<pre><code> output: {
-    path: path.resolve('dist'),
-    filename: outputJs,
+<ul>
+    <li>library: string - library name</li>
+    <li>libraryExport: string or string[] (_entry_return_, default, moduleName, [module1, module2]) - how your module exports will be assigned to the library</li>
+    <li>libraryTarget: string (var, umd, amd, commonjs, commonjs2, global, window, this) - type of module or variable you want to target</li>
+    <li>umdNamedDefine: boolean - if you want your AMD module (as part of the UMD build) named</li>
+</ul>
+
+<pre><code>output: {
     library: 'NProgress',
+    libraryExport: 'default',
     libraryTarget: 'umd',
     umdNamedDefine: true,
 },</code></pre>
 
-<p>Notice the library, libraryTarget, and umdNamedDefine - this would essentially add the snippet of code I showed above to my bundled/transpiled library.  This almost got me home.  I had to do one other thing to get my library to export correctly.  I was initially getting my library namespaced incorrectly b/c I was using a 'default' export.</p>
-
-<pre><code>export default NProgress();
-// resulted in
-NProgress.NProgress.start();</code></pre>
-
-<p>This wasn't what I wanted.  After a little more googling and puzzling I figured out I could use a commonjs export to fix my problem.</p>
-
-<pre><code>module.exports = NProgress();
-// resulted in
-NProgress.start();</code></pre>
+<p>This would essentially add the snippet of code I showed above to my bundled/transpiled library.  This pretty much got me everything I needed.</p>
 
 <p>Alright so now I had my module all setup for use in apps all over the web except I had to deal with the proper way to polyfill my ES2015+ features that wouldn't get transpiled.  There were two javascript syntax features that I was using in particular that I needed to resolve.  I was using Object.assign() and promise.finally().  I remembered some documentation I had run across a couple years back about how you don't want to use babel-polyfill in a library but only in a web app itself otherwise you will cause issues with global stuff...</p>
 
