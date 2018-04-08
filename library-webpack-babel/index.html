@@ -288,7 +288,7 @@ module.exports = config;</code></pre>
 
     <pre><code>&lt;script src="https://unpkg.com/accessible-nprogress/dist/accessible-nprogress.min.js"&gt;&lt;/script&gt;</code></pre>
 
-    <li>Transpile and polyfill (without using babel polyfill) it was friendly to others</li>
+    <li>Transpile and polyfill (without using babel polyfill) so it was friendly to others</li>
 </ul>
 
 <p>I knew I could accomplish the first three items by using something called by <a href="https://github.com/umdjs/umd">UMD</a> (Universal Module Definition), but I didn't know how to do this in my application with webpack and babel.  First I thought I could just add the code manually which I've seen in other libraries...</p>
@@ -303,9 +303,9 @@ if (typeof define === 'function' && define.amd) {
 }
 })(this, function() {</code></pre>
 
-<p>However when I tried to add some code like this at the top of my module I ran into trouble.  The code I have above works great if you only have one js file and you aren't importing other modules into your entry point, but I had broken my code into a couple modules and was trying to break my code up into some small managable modules for maintainability.</p>
+<p>However when I tried to add some code like this at the top of my module I ran into trouble.  The code I have above works great if you only have one js file and you aren't using a bundler (like webpack) to import other modules into your entry point, but I had broken my code into a couple modules and was trying to have small managable modules for maintainability.</p>
 
-<p>After several hours of googling and trying to figure out what I was doing wrong I finally stumbled upon a feature in webpack that makes all of this much easier... <a href="https://webpack.js.org/guides/author-libraries/">webpack docs</a> where I learned that I could add a few extra options to my webpack.config.js output setup and things would pretty much work how I wanted.</p>
+<p>After several hours of googling and trying to figure out what I was doing wrong I finally stumbled upon a feature in webpack that makes all of this much easier... There is a <a href="https://webpack.js.org/guides/author-libraries/">page</a> in the webpack docs where I learned that you can add a few extra options to my webpack.config.js 'output' setup and things would pretty much work how I wanted.</p>
 
 <pre><code> output: {
     path: path.resolve('dist'),
@@ -327,7 +327,7 @@ NProgress.NProgress.start();</code></pre>
 // resulted in
 NProgress.start();</code></pre>
 
-<p>Alright so now I had my module all setup for use in web apps all over the web except I had to deal with the proper way to polyfill my ES2015+ features that wouldn't get transpiled.  There were two javascript syntax features that I was using in particular that I needed to resolve.  I was using Object.assign() and promise.finally().  I remembered some documentation I had run across a couple years back about how you don't want to use babel-polyfill in a library but only in a web app itself otherwise you will cause issues with global stuff...</p>
+<p>Alright so now I had my module all setup for use in apps all over the web except I had to deal with the proper way to polyfill my ES2015+ features that wouldn't get transpiled.  There were two javascript syntax features that I was using in particular that I needed to resolve.  I was using Object.assign() and promise.finally().  I remembered some documentation I had run across a couple years back about how you don't want to use babel-polyfill in a library but only in a web app itself otherwise you will cause issues with global stuff...</p>
 
 <pre><code>https://babeljs.io/docs/usage/polyfill/
 If you are looking for something that won't modify globals to be used in a tool/library, checkout the transform-runtime plugin.</code></pre>
@@ -349,7 +349,7 @@ If you are looking for something that won't modify globals to be used in a tool/
 
 <p>And that's it... just those few... short... steps and you have create your own open source libary that you can publish to NPM as well :)</p>
 
-<p>To see the final result and all of the other project tools and configuration that I use head on over to my <a href="https://github.com/nmackey/accessible-nprogress">project</a> and check it out!  Better yet - check out the demo <a href="https://nmackey.com/accessible-nprogress/">here</a> and if you like it add it to your next project.</p>
+<p>To see the final result and all of the other tools and configuration that I use head on over to <a href="https://github.com/nmackey/accessible-nprogress">accessible-nprogress</a> and check it out!  Better yet - check out the demo <a href="https://nmackey.com/accessible-nprogress/">here</a> and if you like it add it to your next project.</p>
 
 <pre><code>$ npm install --save accessible-nprogress</code></pre>
 
