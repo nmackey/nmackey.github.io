@@ -1,0 +1,19 @@
+{
+  "name": "Nicholas Mackey",
+  "url": "https://nmackey.com",
+  "description": "Web development and other stuff.",
+  "author": "Nicholas Mackey",
+  "tagline": "Web development and other stuff.",
+  "social": {
+    "github": "https://github.com/nmackey/",
+    "linkedin": "https://www.linkedin.com/in/nicholas-mackey-5460342a/"
+  },
+  "giscus": {
+    "repo": "nmackey/nmackey.github.io",
+    "repoId": "MDEwOlJlcG9zaXRvcnkyNjcwNDAzMQ==",
+    "category": "Announcements",
+    "categoryId": "DIC_kwDOAZd4n84DHkh0",
+    "mapping": "pathname"
+  },
+  "cloudflareBeaconToken": "0026c5fc7ac14b0caad491a36a3fd4e8"
+}
